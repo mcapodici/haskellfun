@@ -17,6 +17,9 @@ executable haskell-fun-tasks
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
+  other-modules:       Application
+                     , Foundation
+                     , Routes.Home
   build-depends:       base >= 4.7 && < 5
                      , yesod
                      , persistent-sqlite
