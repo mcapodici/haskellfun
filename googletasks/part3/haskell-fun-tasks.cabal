@@ -25,3 +25,4 @@ executable haskell-fun-tasks
                      , persistent-sqlite
                      , resourcet
                      , monad-logger
+                     , yesod-static

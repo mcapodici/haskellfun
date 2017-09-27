@@ -10,6 +10,7 @@ import Control.Monad.Trans.Resource (runResourceT)
 import Control.Monad.Logger (runStderrLoggingT)
 import Foundation
 import Application
+import Yesod.Static
 
 openConnectionCount :: Int
 openConnectionCount = 10
@@ -21,4 +22,5 @@ main = runStderrLoggingT $ withSqlitePool "test.db3" openConnectionCount $ \pool
         deleteWhere ([] :: [Filter Task])
         insert $ Task "Buy Laundry Powder" False
         insert $ Task "Walk the dog" True
-    warp 3000 $ WebApp pool
+    stc <- static "static"
+    warp 3000 $ WebApp pool stc

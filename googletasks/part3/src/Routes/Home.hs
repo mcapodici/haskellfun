@@ -17,8 +17,11 @@ getHomeR = do
     defaultLayout $ do
         toWidget [lucius| .done { text-decoration: line-through ;} |]
         [whamlet|
-            <ul>
+            <div .container>
                 $forall Entity taskid task <- tasks
-                    <li>
+                    <div .row>
+                      <div .col-6>
                         <span :taskDone task:.done>#{taskDescription task}
+                      <div .col-6>
+                        Buttons go here...
         |]
